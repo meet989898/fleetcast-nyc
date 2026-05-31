@@ -1,24 +1,18 @@
 from __future__ import annotations
 
 import json
-from datetime import UTC, datetime
+import sys
 from pathlib import Path
 
-MODEL_PATH = Path("ml/models/model-demo.json")
+if __package__ in {None, ""}:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from fleetcast.artifacts import MODEL_PATH, write_demo_artifacts
 
 
 def train_demo_model() -> dict[str, object]:
-    model = {
-        "model_version": "demo-v0",
-        "trained_at": datetime.now(UTC).isoformat(),
-        "model_type": "historical_mean_baseline",
-        "features": ["zone_id", "hour", "day_of_week", "lag_1", "lag_2", "rolling_mean"],
-        "notes": "Placeholder artifact until TLC parquet ingestion is wired.",
-    }
-
-    MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
-    MODEL_PATH.write_text(json.dumps(model, indent=2), encoding="utf-8")
-    return model
+    write_demo_artifacts()
+    return json.loads(MODEL_PATH.read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":

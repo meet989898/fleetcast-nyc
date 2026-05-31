@@ -2,13 +2,13 @@
 
 FleetCast NYC is a public ML product demo for forecasting NYC taxi demand by taxi zone and recommending simple repositioning moves for idle drivers.
 
-The first scaffold ships a working Next.js operations console with typed demo data, API contracts, a Python modeling skeleton, and tests. The next build step is replacing demo aggregates with NYC TLC trip-derived features.
+The first scaffold ships a working Next.js operations console, API contracts, a Python modeling skeleton, and a generated fixture forecast artifact. The next build step is replacing the committed sample fixture with NYC TLC trip-derived aggregates.
 
 ## Current Status
 
 - App shell: built
 - Demo forecast APIs: built
-- Python ML skeleton: built
+- Python ML artifact pipeline: built
 - Public data ingestion: next
 - Live deployment: next
 
@@ -31,6 +31,7 @@ Raw trip data should stay outside Git. The repository should only include small 
 
 ```powershell
 npm install
+npm run train:demo
 npm run dev
 ```
 
@@ -40,23 +41,30 @@ Open:
 http://127.0.0.1:3000
 ```
 
-The Codex environment used to create this scaffold had Node available but not `npm` or `npx` on PATH, so verification may use the parent workspace's installed Next.js binary until a normal Node/npm install is available.
+If PowerShell blocks `npm.ps1`, use `npm.cmd` or run from a fresh terminal after Node installation.
 
 ## Verification
 
 ```powershell
 npm run build
+npm run lint
 npm run test:ml
 npm run verify
 ```
 
-Codex fallback commands from the parent workspace:
+Demo artifact commands:
 
 ```powershell
-node ..\node_modules\next\dist\bin\next build
-python -m unittest discover -s ml/tests -p "test_*.py"
-node scripts/verify-local.mjs
+npm run train:demo
+npm run backtest:demo
 ```
+
+Current fixture metrics:
+
+- MAE: `3.5443`
+- RMSE: `3.9257`
+- weighted absolute error: `3.8687`
+- top-k hotspot precision: `0.8`
 
 ## ML Plan
 

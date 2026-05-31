@@ -4,6 +4,7 @@ import { Activity, CloudRain, Database, MapPinned, Navigation, Timer } from "luc
 import { useState } from "react";
 
 import {
+  artifact,
   buildForecast,
   buildHotspots,
   buildRepositionRecommendations,
@@ -42,7 +43,7 @@ export function FleetcastDashboard() {
           </span>
           <span>
             <Activity size={16} aria-hidden="true" />
-            Model demo-v0
+            Model {artifact.modelVersion}
           </span>
         </div>
       </header>
@@ -63,7 +64,7 @@ export function FleetcastDashboard() {
         </div>
         <div className="weather-pill">
           <CloudRain size={16} aria-hidden="true" />
-          Light rain, 63F
+          Fixture MAE {artifact.metrics.mae}
         </div>
       </section>
 

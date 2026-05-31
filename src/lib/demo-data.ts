@@ -1,4 +1,5 @@
 import type { Horizon, RepositionRecommendation, Zone, ZoneForecast } from "./types";
+import forecastArtifact from "./forecast-artifact.json";
 
 export const horizons: Horizon[] = [15, 30, 60];
 
@@ -61,38 +62,22 @@ export const zones: Zone[] = [
   },
 ];
 
-const demandByZone: Record<number, Record<Horizon, number>> = {
-  161: { 15: 44, 30: 61, 60: 93 },
-  230: { 15: 39, 30: 58, 60: 88 },
-  132: { 15: 31, 30: 55, 60: 102 },
-  138: { 15: 24, 30: 42, 60: 73 },
-  48: { 15: 27, 30: 39, 60: 61 },
-  170: { 15: 25, 30: 37, 60: 58 },
-  79: { 15: 21, 30: 34, 60: 56 },
-  7: { 15: 18, 30: 28, 60: 46 },
+type ArtifactForecast = Omit<ZoneForecast, "zoneId" | "horizon">;
+
+type ForecastArtifact = {
+  modelVersion: string;
+  generatedAt: string;
+  source: {
+    mode: string;
+    recordCount: number;
+    zoneCount: number;
+    inputPath: string;
+  };
+  metrics: Record<string, number | string>;
+  forecasts: Record<string, Record<string, ArtifactForecast>>;
 };
 
-const baselineByZone: Record<number, Record<Horizon, number>> = {
-  161: { 15: 36, 30: 53, 60: 84 },
-  230: { 15: 35, 30: 49, 60: 79 },
-  132: { 15: 25, 30: 45, 60: 88 },
-  138: { 15: 22, 30: 36, 60: 65 },
-  48: { 15: 25, 30: 35, 60: 55 },
-  170: { 15: 22, 30: 34, 60: 52 },
-  79: { 15: 18, 30: 29, 60: 48 },
-  7: { 15: 16, 30: 25, 60: 40 },
-};
-
-const trends: Record<number, number[]> = {
-  161: [32, 35, 37, 40, 44],
-  230: [29, 31, 35, 36, 39],
-  132: [20, 22, 26, 29, 31],
-  138: [18, 19, 20, 23, 24],
-  48: [24, 23, 25, 27, 27],
-  170: [18, 21, 22, 24, 25],
-  79: [13, 16, 17, 19, 21],
-  7: [12, 14, 15, 17, 18],
-};
+export const artifact = forecastArtifact as ForecastArtifact;
 
 export function getZone(zoneId: number) {
   return zones.find((zone) => zone.id === zoneId);
@@ -104,36 +89,16 @@ export function buildForecast(zoneId: number, horizon: Horizon): ZoneForecast | 
     return null;
   }
 
-  const predictedDemand = demandByZone[zoneId]?.[horizon];
-  const baselineDemand = baselineByZone[zoneId]?.[horizon];
+  const artifactForecast = artifact.forecasts[String(zoneId)]?.[String(horizon)];
 
-  if (predictedDemand === undefined || baselineDemand === undefined) {
+  if (!artifactForecast) {
     return null;
   }
-
-  const margin = Math.max(4, Math.round(predictedDemand * 0.14));
-  const lift = predictedDemand - baselineDemand;
 
   return {
     zoneId,
     horizon,
-    predictedDemand,
-    baselineDemand,
-    confidence: lift >= 8 ? "high" : lift >= 4 ? "medium" : "low",
-    lowerBound: Math.max(0, predictedDemand - margin),
-    upperBound: predictedDemand + margin,
-    recentTrend: trends[zoneId] ?? [],
-    weather: {
-      condition: "Light rain",
-      temperatureF: 63,
-      precipitationRisk: 0.42,
-    },
-    topFactors: [
-      "same-zone rolling demand",
-      "weekday evening seasonality",
-      "nearby-zone pickup lift",
-      "weather-adjusted airport flow",
-    ],
+    ...artifactForecast,
   };
 }
 

@@ -4,9 +4,9 @@
 
 Current scaffold:
 
-- `demo-v0`
-- deterministic demo forecasts
-- Python baseline artifact placeholder
+- `fixture-v1`
+- fixture-derived forecasts generated from `data/sample/demand-fixture.csv`
+- historical-mean baseline artifact written by `npm run train:demo`
 
 Planned first real model:
 
@@ -37,8 +37,15 @@ Planned:
 - weighted absolute error
 - top-k hotspot precision
 
+Current fixture metrics:
+
+- MAE: 3.5443
+- RMSE: 3.9257
+- weighted absolute error: 3.8687
+- top-k hotspot precision: 0.8
+
 ## Limitations
 
-- The demo scaffold uses sample data, not a trained TLC model yet.
+- The demo scaffold uses a small committed sample fixture, not a trained TLC model yet.
 - Taxi trip records have publication lag.
 - Zone-level aggregation cannot describe individual driver or rider behavior.

@@ -18,6 +18,7 @@ jobs:
         with:
           python-version: "3.13"
       - run: npm install
+      - run: npm run train:demo
       - run: npm run build
       - run: npm run test:ml
       - run: npm run verify

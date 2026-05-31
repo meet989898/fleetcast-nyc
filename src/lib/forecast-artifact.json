@@ -1,0 +1,635 @@
+{
+  "modelVersion": "fixture-v1",
+  "generatedAt": "2026-05-31T18:00:00-04:00",
+  "source": {
+    "mode": "sample_fixture",
+    "recordCount": 40,
+    "zoneCount": 8,
+    "inputPath": "data/sample/demand-fixture.csv"
+  },
+  "metrics": {
+    "model_version": "fixture-v1",
+    "mae": 3.5443,
+    "rmse": 3.9257,
+    "weighted_absolute_error": 3.8687,
+    "top_k_hotspot_precision": 0.8
+  },
+  "forecasts": {
+    "7": {
+      "15": {
+        "predictedDemand": 20,
+        "baselineDemand": 16,
+        "confidence": "medium",
+        "lowerBound": 16,
+        "upperBound": 24,
+        "recentTrend": [
+          12,
+          14,
+          15,
+          17,
+          18
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      },
+      "30": {
+        "predictedDemand": 22,
+        "baselineDemand": 17,
+        "confidence": "medium",
+        "lowerBound": 18,
+        "upperBound": 26,
+        "recentTrend": [
+          12,
+          14,
+          15,
+          17,
+          18
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      },
+      "60": {
+        "predictedDemand": 25,
+        "baselineDemand": 19,
+        "confidence": "medium",
+        "lowerBound": 21,
+        "upperBound": 29,
+        "recentTrend": [
+          12,
+          14,
+          15,
+          17,
+          18
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      }
+    },
+    "48": {
+      "15": {
+        "predictedDemand": 30,
+        "baselineDemand": 27,
+        "confidence": "low",
+        "lowerBound": 26,
+        "upperBound": 34,
+        "recentTrend": [
+          24,
+          23,
+          25,
+          27,
+          27
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      },
+      "30": {
+        "predictedDemand": 33,
+        "baselineDemand": 29,
+        "confidence": "medium",
+        "lowerBound": 28,
+        "upperBound": 38,
+        "recentTrend": [
+          24,
+          23,
+          25,
+          27,
+          27
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      },
+      "60": {
+        "predictedDemand": 38,
+        "baselineDemand": 33,
+        "confidence": "medium",
+        "lowerBound": 33,
+        "upperBound": 43,
+        "recentTrend": [
+          24,
+          23,
+          25,
+          27,
+          27
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      }
+    },
+    "79": {
+      "15": {
+        "predictedDemand": 23,
+        "baselineDemand": 18,
+        "confidence": "medium",
+        "lowerBound": 19,
+        "upperBound": 27,
+        "recentTrend": [
+          13,
+          16,
+          17,
+          19,
+          21
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      },
+      "30": {
+        "predictedDemand": 26,
+        "baselineDemand": 19,
+        "confidence": "medium",
+        "lowerBound": 22,
+        "upperBound": 30,
+        "recentTrend": [
+          13,
+          16,
+          17,
+          19,
+          21
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      },
+      "60": {
+        "predictedDemand": 30,
+        "baselineDemand": 22,
+        "confidence": "high",
+        "lowerBound": 26,
+        "upperBound": 34,
+        "recentTrend": [
+          13,
+          16,
+          17,
+          19,
+          21
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      }
+    },
+    "132": {
+      "15": {
+        "predictedDemand": 34,
+        "baselineDemand": 26,
+        "confidence": "high",
+        "lowerBound": 29,
+        "upperBound": 39,
+        "recentTrend": [
+          20,
+          22,
+          26,
+          29,
+          31
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      },
+      "30": {
+        "predictedDemand": 38,
+        "baselineDemand": 29,
+        "confidence": "high",
+        "lowerBound": 33,
+        "upperBound": 43,
+        "recentTrend": [
+          20,
+          22,
+          26,
+          29,
+          31
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      },
+      "60": {
+        "predictedDemand": 44,
+        "baselineDemand": 32,
+        "confidence": "high",
+        "lowerBound": 38,
+        "upperBound": 50,
+        "recentTrend": [
+          20,
+          22,
+          26,
+          29,
+          31
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      }
+    },
+    "138": {
+      "15": {
+        "predictedDemand": 26,
+        "baselineDemand": 22,
+        "confidence": "medium",
+        "lowerBound": 22,
+        "upperBound": 30,
+        "recentTrend": [
+          18,
+          19,
+          20,
+          23,
+          24
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      },
+      "30": {
+        "predictedDemand": 29,
+        "baselineDemand": 24,
+        "confidence": "medium",
+        "lowerBound": 25,
+        "upperBound": 33,
+        "recentTrend": [
+          18,
+          19,
+          20,
+          23,
+          24
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      },
+      "60": {
+        "predictedDemand": 34,
+        "baselineDemand": 27,
+        "confidence": "medium",
+        "lowerBound": 29,
+        "upperBound": 39,
+        "recentTrend": [
+          18,
+          19,
+          20,
+          23,
+          24
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      }
+    },
+    "161": {
+      "15": {
+        "predictedDemand": 48,
+        "baselineDemand": 39,
+        "confidence": "high",
+        "lowerBound": 41,
+        "upperBound": 55,
+        "recentTrend": [
+          32,
+          35,
+          37,
+          40,
+          44
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      },
+      "30": {
+        "predictedDemand": 54,
+        "baselineDemand": 42,
+        "confidence": "high",
+        "lowerBound": 46,
+        "upperBound": 62,
+        "recentTrend": [
+          32,
+          35,
+          37,
+          40,
+          44
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      },
+      "60": {
+        "predictedDemand": 62,
+        "baselineDemand": 48,
+        "confidence": "high",
+        "lowerBound": 53,
+        "upperBound": 71,
+        "recentTrend": [
+          32,
+          35,
+          37,
+          40,
+          44
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      }
+    },
+    "170": {
+      "15": {
+        "predictedDemand": 27,
+        "baselineDemand": 23,
+        "confidence": "medium",
+        "lowerBound": 23,
+        "upperBound": 31,
+        "recentTrend": [
+          18,
+          21,
+          22,
+          24,
+          25
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      },
+      "30": {
+        "predictedDemand": 30,
+        "baselineDemand": 25,
+        "confidence": "medium",
+        "lowerBound": 26,
+        "upperBound": 34,
+        "recentTrend": [
+          18,
+          21,
+          22,
+          24,
+          25
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      },
+      "60": {
+        "predictedDemand": 35,
+        "baselineDemand": 28,
+        "confidence": "medium",
+        "lowerBound": 30,
+        "upperBound": 40,
+        "recentTrend": [
+          18,
+          21,
+          22,
+          24,
+          25
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      }
+    },
+    "230": {
+      "15": {
+        "predictedDemand": 43,
+        "baselineDemand": 35,
+        "confidence": "high",
+        "lowerBound": 37,
+        "upperBound": 49,
+        "recentTrend": [
+          29,
+          31,
+          35,
+          36,
+          39
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      },
+      "30": {
+        "predictedDemand": 47,
+        "baselineDemand": 39,
+        "confidence": "high",
+        "lowerBound": 40,
+        "upperBound": 54,
+        "recentTrend": [
+          29,
+          31,
+          35,
+          36,
+          39
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      },
+      "60": {
+        "predictedDemand": 55,
+        "baselineDemand": 44,
+        "confidence": "high",
+        "lowerBound": 47,
+        "upperBound": 63,
+        "recentTrend": [
+          29,
+          31,
+          35,
+          36,
+          39
+        ],
+        "weather": {
+          "condition": "Light rain",
+          "temperatureF": 63,
+          "precipitationRisk": 0.42
+        },
+        "topFactors": [
+          "same-zone rolling demand",
+          "weekday evening seasonality",
+          "nearby-zone pickup lift",
+          "weather-adjusted airport flow"
+        ]
+      }
+    }
+  }
+}

@@ -1,11 +1,14 @@
 import { NextResponse } from "next/server";
 
+import { artifact } from "@/lib/demo-data";
+
 export function GET() {
   return NextResponse.json({
     status: "ok",
     app: "fleetcast-nyc",
-    modelVersion: process.env.MODEL_VERSION ?? "demo-v0",
+    modelVersion: process.env.MODEL_VERSION ?? artifact.modelVersion,
     dataMode: process.env.DEMO_DATA_MODE === "false" ? "database" : "demo",
-    latestForecastBucket: "2026-05-31T18:00:00-04:00",
+    latestForecastBucket: artifact.generatedAt,
+    metrics: artifact.metrics,
   });
 }

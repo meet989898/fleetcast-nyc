@@ -8,7 +8,9 @@ const requiredFiles = [
   "src/app/api/hotspots/route.ts",
   "src/app/api/reposition/route.ts",
   "src/components/fleetcast-dashboard.tsx",
+  "src/lib/forecast-artifact.json",
   "ml/src/fleetcast/features.py",
+  "ml/src/fleetcast/artifacts.py",
   "ml/src/fleetcast/reposition.py",
   "docs/model-card.md",
 ];
@@ -27,6 +29,18 @@ for (const token of ["FleetCast NYC", "buildHotspots", "buildRepositionRecommend
     console.error(`Dashboard is missing expected token: ${token}`);
     process.exit(1);
   }
+}
+
+const artifact = JSON.parse(readFileSync(join(root, "src/lib/forecast-artifact.json"), "utf8"));
+
+if (artifact.modelVersion !== "fixture-v1") {
+  console.error(`Unexpected artifact model version: ${artifact.modelVersion}`);
+  process.exit(1);
+}
+
+if (artifact.source.zoneCount !== 8 || artifact.source.recordCount !== 40) {
+  console.error("Forecast artifact does not contain the expected fixture coverage.");
+  process.exit(1);
 }
 
 console.log("FleetCast local scaffold verification passed.");
