@@ -3,6 +3,7 @@ node_modules/
 out/
 dist/
 coverage/
+dev-server*.log
 .env
 .env.local
 .env.*.local
