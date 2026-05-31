@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FleetCast Forecast Response",
+  "type": "object",
+  "required": ["zone", "forecast"],
+  "properties": {
+    "zone": {
+      "type": "object",
+      "required": ["id", "name", "borough"],
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" },
+        "borough": { "type": "string" }
+      }
+    },
+    "forecast": {
+      "type": "object",
+      "required": ["zoneId", "horizon", "predictedDemand", "baselineDemand"],
+      "properties": {
+        "zoneId": { "type": "integer" },
+        "horizon": { "enum": [15, 30, 60] },
+        "predictedDemand": { "type": "number" },
+        "baselineDemand": { "type": "number" }
+      }
+    }
+  }
+}
