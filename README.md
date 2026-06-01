@@ -4,13 +4,16 @@ FleetCast NYC is a public ML product demo for forecasting NYC taxi demand by tax
 
 The first scaffold ships a working Next.js operations console, API contracts, a Python modeling skeleton, and a generated fixture forecast artifact. The next build step is replacing the committed sample fixture with NYC TLC trip-derived aggregates.
 
+![FleetCast NYC dashboard](public/screenshots/fleetcast-desktop.png)
+
 ## Current Status
 
 - App shell: built
 - Demo forecast APIs: built
 - Python ML artifact pipeline: built
-- Public data ingestion: next
-- Live deployment: next
+- Public data ingestion helpers: built
+- Production UI polish: built
+- Live deployment: pending one-time Vercel CLI login
 
 ## Demo Surface
 
@@ -26,6 +29,16 @@ The first scaffold ships a working Next.js operations console, API contracts, a 
 - National Weather Service API
 
 Raw trip data should stay outside Git. The repository should only include small fixtures, aggregate examples, schemas, and generated demo artifacts.
+
+## Ingestion
+
+```powershell
+npm run ingest:zones
+npm run ingest:sample
+python ml/src/fleetcast/ingest.py yellow-url 2025 1
+```
+
+`ingest:zones` downloads the official TLC taxi zone lookup CSV into `data/raw/`, which is ignored by Git. `ingest:sample` converts the committed TLC-style raw trip fixture into 15-minute zone demand buckets under `data/processed/`, also ignored by Git.
 
 ## Local Development
 
@@ -84,9 +97,12 @@ First real model path:
 ## Deployment Plan
 
 - Frontend/API: Vercel
+- Target URL: `fleetcast.meetgandhi.com`
 - Database: Neon Postgres
 - Refresh/retraining: GitHub Actions
 - Fallback inference: FastAPI on Render, Fly.io, or Railway if the model becomes too heavy for Vercel Functions
+
+See `docs/deployment.md` for the exact Vercel project, production deploy, and custom-domain commands.
 
 ## Resume Outcomes
 

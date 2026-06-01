@@ -23,3 +23,19 @@ class ZonePoint:
     x: float
     y: float
     neighbors: tuple[int, ...]
+
+
+@dataclass(frozen=True)
+class ZoneLookup:
+    zone_id: int
+    borough: str
+    zone_name: str
+    service_zone: str
+
+    def __post_init__(self) -> None:
+        if self.zone_id <= 0:
+            raise ValueError("zone_id must be positive")
+        if not self.borough:
+            raise ValueError("borough is required")
+        if not self.zone_name:
+            raise ValueError("zone_name is required")

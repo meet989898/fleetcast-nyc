@@ -1,18 +1,41 @@
 # Deployment
 
-Recommended first deployment:
+FleetCast NYC should live at `fleetcast.meetgandhi.com` so the root portfolio can stay on `meetgandhi.com`.
 
-- Vercel for the Next.js app and lightweight API routes
-- Neon Postgres for aggregate features and predictions
-- GitHub Actions for scheduled refresh and retraining
+## One-Time Auth
 
-Environment variables:
+PowerShell blocks the `vercel.ps1` shim on this machine, so use `vercel.cmd`:
 
-```text
-DATABASE_URL=
-NWS_USER_AGENT=
-MODEL_VERSION=
-DEMO_DATA_MODE=true
+```powershell
+vercel.cmd login
 ```
 
-If model serving becomes too heavy for Vercel Functions, keep the frontend on Vercel and move inference to a small FastAPI service.
+After that succeeds, these commands can be run by Codex without another browser login.
+
+## Project And Production Deploy
+
+```powershell
+cd "C:\Users\gandh\OneDrive\Documents\Random Stuff\fleetcast-nyc"
+vercel.cmd project add fleetcast-nyc --scope gandhimeetmg-6414s-projects
+vercel.cmd link --yes --project fleetcast-nyc --scope gandhimeetmg-6414s-projects
+vercel.cmd --prod --yes --scope gandhimeetmg-6414s-projects
+```
+
+Save the production deployment hostname printed by the last command.
+
+## Custom Domain
+
+```powershell
+vercel.cmd domains add fleetcast.meetgandhi.com fleetcast-nyc --scope gandhimeetmg-6414s-projects
+vercel.cmd alias set <deployment-hostname> fleetcast.meetgandhi.com --scope gandhimeetmg-6414s-projects
+```
+
+If Vercel asks for DNS configuration at the registrar, add this record:
+
+```text
+Type: CNAME
+Name: fleetcast
+Value: cname.vercel-dns.com
+```
+
+Then rerun the `domains add` and `alias set` commands after DNS propagates.

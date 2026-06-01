@@ -4,6 +4,7 @@ out/
 dist/
 coverage/
 dev-server*.log
+prod-server*.log
 .env
 .env.local
 .env.*.local

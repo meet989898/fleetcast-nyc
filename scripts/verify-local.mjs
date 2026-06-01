@@ -11,8 +11,15 @@ const requiredFiles = [
   "src/lib/forecast-artifact.json",
   "ml/src/fleetcast/features.py",
   "ml/src/fleetcast/artifacts.py",
+  "ml/src/fleetcast/ingest.py",
   "ml/src/fleetcast/reposition.py",
+  "data/sample/raw-trips-fixture.csv",
+  "data/sample/taxi-zone-lookup-fixture.csv",
+  "docs/deployment.md",
   "docs/model-card.md",
+  "public/favicon.svg",
+  "public/screenshots/fleetcast-desktop.png",
+  "public/screenshots/fleetcast-mobile.png",
 ];
 
 const missing = requiredFiles.filter((file) => !existsSync(join(root, file)));
